@@ -13,7 +13,7 @@ require("dotenv").config();
 @Module({
   //'mongodb://localhost:27017/dbusers'
   imports: [UsersModule, MongooseModule.forRoot(
-    process.env.mongodb
+    `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.ljs3d.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`
     ), AuthenticationModule],
   controllers: [AppController, AuthController],
   providers: [AppService, AuthenticationService],
